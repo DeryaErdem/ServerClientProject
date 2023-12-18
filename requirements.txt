@@ -1,0 +1,13 @@
+#These are the libraries to make server.py client.py and performance_metrics.py work
+ca-certificates==2023.08.22
+libffi==3.4.4
+openssl==3.0.12
+pip==23.3.1
+psutil==5.9.7
+python==3.8.18
+setuptools==68.2.2
+sqlite==3.41.2
+vc==14.2
+vs2015_runtime==14.27.29016
+websockets==12.0
+wheel==0.41.2
