@@ -10,7 +10,7 @@ async def measure_latency():#This function is for testing the latency of server
         start_time = time.time()
         await websocket.recv()
         latency = time.time() - start_time
-        print(f"Latency: {latency:.10f} seconds")
+        print(f"Latency: {latency:.15f} seconds")
 
 async def measure_throughput(messages_to_send):#This function is for testing the data amount that server can handle
     uri = "ws://localhost:8765"
@@ -37,8 +37,8 @@ async def measure_resource_utilization():#This function is for getting the machi
         await asyncio.sleep(5)  # Adjust the interval as needed
 
 async def measure_scalability(num_clients, messages_per_client, duration_seconds): #This function is for testing the amount of user and messages
+    print(f"\nScalability Test: {num_clients} clients will try to take {messages_per_client} messages each. Please wait...\n")
     async def simulate_client(client_id):                                          #they take from the server without crashing it.
-        print(f"\nScalability Test: {num_clients} clients will try to take {messages_per_client} messages each. Please wait...\n")
         uri = "ws://localhost:8765"
         async with websockets.connect(uri) as websocket:
             print(f"Client {client_id} connected.")
@@ -60,11 +60,12 @@ async def main():
 
     print("\nRunning Resource Utilization Measurement please wait:") #it will give us the machine resource utilization information
     resource_task = asyncio.create_task(measure_resource_utilization())
-    await asyncio.sleep(60)
+    await asyncio.sleep(15)
     resource_task.cancel()
 
     print("\nRunning Scalability Test please wait:")
-    await measure_scalability(num_clients=20, messages_per_client=50, duration_seconds=60)# We test the server scalability here with connecting with more clients at a time.
+    await measure_scalability(num_clients=20, messages_per_client=50, duration_seconds=20)# We test the server scalability here with connecting with more clients at a time.
+    print("\nScalability Test Completed. Testing is over!")
 
 if __name__ == "__main__":
     asyncio.run(main())
