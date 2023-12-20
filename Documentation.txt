@@ -56,27 +56,67 @@ using the async/await syntax.
 
 ### Latency Measurement
 [Details of the latency measurement test.]
-Trio:
-Asyncio:
+Trio:Latency: 0.0059227943 seconds
+Asyncio:Latency: 0.000000000000000 seconds
 
 ### Throughput Measurement
 [Details of the throughput measurement test.]
 Trio:
+Throughput: 25252.1662 messages per second
+Total Data Size: 240000 bytes
+Time Spent: 0.40 seconds
+
 Asyncio:
+Throughput: 44345.2675 messages per second
+Total Data Size: 240000 bytes
+Time Spent: 0.23 seconds
+
 
 ### Resource Utilization Measurement
 [Details of the resource utilization measurement test.]
 Trio:
+CPU Usage: 9.1% | Memory Usage: 69.3%
+CPU Usage: 4.5% | Memory Usage: 69.3%
+
 Asyncio:
+CPU Usage: 2.9% | Memory Usage: 61.4%
+CPU Usage: 4.2% | Memory Usage: 61.7%
+CPU Usage: 6.0% | Memory Usage: 62.0%
+
 
 ### Scalability Test
 [Details of the scalability test.]
-Trio:
-Asyncio:
+100Clients waits for 20 message from server.(it takes minimum 19 seconds since my server gives data in every 1 second.
+Therefore, they wait 19 seconds minimum for 20 messages.)
+
+Trio: 19.27 seconds.
+Asyncio: 19.30 seconds
 
 ## Conclusion
 
-In conclusion, based on the conducted performance evaluation, we provide insights into the strengths and weaknesses
-of both Trio and Asyncio in handling WebSocket communication. The results aim to guide developers in choosing the most
-suitable library for their specific use cases.
+Conclusion
+Latency Measurement
+In the latency measurement test, Trio demonstrated a latency of 0.0059 seconds, while Asyncio showed an impressively low
+ latency of 0.000000000000000 seconds. Asyncio appears to have a slight advantage in this specific aspect.
 
+Throughput Measurement
+For throughput measurement, Trio achieved a throughput of 25,252.1662 messages per second, with a total data size of
+240,000 bytes, and it took 0.40 seconds. On the other hand, Asyncio outperformed with a higher throughput of 44,345.2675
+messages per second, the same total data size, and a faster execution time of 0.23 seconds. Asyncio demonstrates
+superior performance in terms of throughput efficiency.
+
+Resource Utilization Measurement
+In the resource utilization test, Trio exhibited an average CPU usage of 6.8% and an average memory usage of 69.3%.
+Asyncio, however, displayed a lower average CPU usage of 4.4% and a slightly lower memory usage ranging from 61.4% to
+62.0%. Asyncio seems to be more resource-efficient, consuming fewer CPU and memory resources during the test.
+
+Scalability Test
+During the scalability test where 100 clients waited for 20 messages from the server, both Trio and Asyncio showed
+similar performance, completing the task in approximately 19.27 seconds for Trio and 19.30 seconds for Asyncio. The
+scalability test indicates that both libraries handle a significant number of clients and messages efficiently without a
+substantial difference in performance.
+
+In conclusion, the choice between Trio and Asyncio depends on the specific requirements of the project. Asyncio
+showcases lower latency, higher throughput, and slightly better resource utilization, making it suitable for scenarios
+prioritizing these factors. Trio, while exhibiting slightly higher latency and lower throughput, still performs well and
+may be preferred for projects that value simplicity and ease of use.
