@@ -1,0 +1,82 @@
+# Project Name: WebSocket Performance Evaluation
+
+## Overview
+
+This documentation presents the results of a performance evaluation conducted on two Python WebSocket libraries/
+frameworks: Trio and Asyncio. The goal of this evaluation is to compare the scalability, latency, throughput, and
+resource utilization of these libraries in a controlled test environment.
+
+## Test Environment
+
+**Hardware Details:**
+- **CPU:** Intel(R) Core(TM) i7-10875H CPU @ 2.30GHz   2.30 GHz
+- **RAM:** 16GB
+- **Operating System:** Windows 10
+- **Number of Cores Utilized:** 1 (in adherence to the case study instructions)
+- **Number of Cores 8
+- **Number of Threads Utilized:** 1 (in adherence to the case study instructions)
+- **I executed the code within a Conda environment, utilizing only the necessary libraries, and using Python 3.8.
+
+### Test Setup
+- Data Type/Size Streamed: [Total Data Size: 240000 bytes. Type: String]
+
+## Libraries Overview
+
+### Trio
+
+**Introduction:**
+Trio is an asynchronous I/O library for Python that is designed with a focus on simplicity and correctness. It provides
+a more intuitive and reliable way to write concurrent code compared to traditional callback-based approaches. Trio aims
+to make it easier for developers to reason about their code and handle concurrency in a natural and readable manner.
+
+**Key Goals:**
+- Simplicity: Trio is designed to be easy to use and understand, minimizing the complexity of asynchronous programming.
+- Correctness: Trio emphasizes correctness, aiming to eliminate common pitfalls and provide a clear model for handling
+  concurrency.
+- Reliability: The library is built to be reliable and robust, helping developers write code that is less prone to bugs
+  related to concurrency.
+
+### Asyncio
+
+**Introduction:**
+Asyncio is a library in Python that provides infrastructure for writing single-threaded concurrent code using coroutines,
+multiplexing I/O access over sockets and other resources. It is a part of the Python standard library and has been
+introduced to address the challenges of asynchronous programming. Asyncio allows developers to write asynchronous code
+using the async/await syntax.
+
+**Key Goals:**
+- Asynchronous Programming: Asyncio enables asynchronous programming in Python, allowing developers to write code that
+  can perform multiple tasks concurrently without blocking the execution.
+- Event Loop: Asyncio is based on an event loop model, where coroutines are scheduled to run on an event loop, and I/O
+  operations can be performed concurrently without waiting for each to complete.
+- Interoperability: Asyncio is designed to be interoperable with other asynchronous libraries, providing a common
+  foundation for asynchronous programming in Python.
+
+## Test Cases
+
+### Latency Measurement
+[Details of the latency measurement test.]
+Trio:
+Asyncio:
+
+### Throughput Measurement
+[Details of the throughput measurement test.]
+Trio:
+Asyncio:
+
+### Resource Utilization Measurement
+[Details of the resource utilization measurement test.]
+Trio:
+Asyncio:
+
+### Scalability Test
+[Details of the scalability test.]
+Trio:
+Asyncio:
+
+## Conclusion
+
+In conclusion, based on the conducted performance evaluation, we provide insights into the strengths and weaknesses
+of both Trio and Asyncio in handling WebSocket communication. The results aim to guide developers in choosing the most
+suitable library for their specific use cases.
+
