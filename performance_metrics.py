@@ -38,7 +38,7 @@ async def measure_resource_utilization():#This function is for getting the machi
 
 async def measure_scalability(num_clients, messages_per_client, duration_seconds): #This function is for testing the amount of user and messages
     print(f"\nScalability Test: {num_clients} clients will try to take {messages_per_client} messages each. Please wait...\n")
-    async def simulate_client(client_id):                                          #they take from the server without crashing it.
+    async def simulate_client(client_id):
         uri = "ws://localhost:8765"
         async with websockets.connect(uri) as websocket:
             print(f"Client {client_id} connected.")
@@ -56,7 +56,7 @@ async def main():
     await measure_latency() #this function will give us the information about latency
 
     print("\nRunning Throughput Measurement please wait:")
-    await measure_throughput(10000) # we can increase or decrease this number for testing.
+    await measure_throughput(10000) #We can increase or decrease this number for testing more data or less.
 
     print("\nRunning Resource Utilization Measurement please wait:") #it will give us the machine resource utilization information
     resource_task = asyncio.create_task(measure_resource_utilization())
